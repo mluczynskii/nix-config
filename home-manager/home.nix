@@ -4,6 +4,9 @@
   imports = [
     outputs.homeManagerModules.kitty
     outputs.homeManagerModules.git
+    outputs.homeManagerModules.zsh
+    outputs.homeManagerModules.hyprland
+    outputs.homeManagerModules.waybar
   ];
   
   home.username = "mluczynski";

@@ -56,17 +56,10 @@ in {
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  programs.hyprland.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "pl";
-    xkbVariant = "";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 
   # Configure console keymap
@@ -92,18 +85,14 @@ in {
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mluczynski = {
     isNormalUser = true;
     description = "Mateusz Łuczyński";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
       kate
-    #  thunderbird
     ];
   };
 
@@ -124,7 +113,13 @@ in {
 	prusa-slicer
 	gnumake
 	cmake
+	waybar
+	rofi-wayland
   ];
+
+  virtualisation.docker = {
+  	enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

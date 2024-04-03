@@ -13,8 +13,9 @@
 	initial_window_width = 910;
 	initial_window_height = 540;
 	enable_audio_bell = false;
+	background_opacity = "0.9";
       };
-      theme = "Forest Night";
+      theme = "Catppuccin-Frappe";
     };
   };
 }
