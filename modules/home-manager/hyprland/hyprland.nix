@@ -10,7 +10,10 @@
 	"$browser" = "firefox";
         "$mainMod" = "SUPER";
 
-	exec-once = "waybar";
+	exec-once = [
+	  "waybar"
+	  "hyprpaper"
+	];
 	
 	env = [
 	  "HYPRCURSOR_SIZE, 30"

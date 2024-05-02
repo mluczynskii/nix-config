@@ -101,7 +101,8 @@ in {
 
   # List packages installed in system profile. To search, run: $ nix search wget
   environment.systemPackages = with pkgs; [
-	vscode
+  	zip
+	vscode.fhs
 	git
 	discord	
 	alejandra
@@ -115,6 +116,8 @@ in {
 	cmake
 	waybar
 	rofi-wayland
+	font-awesome
+	hyprpaper
   ];
 
   virtualisation.docker = {
