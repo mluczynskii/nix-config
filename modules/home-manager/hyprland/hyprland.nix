@@ -10,6 +10,11 @@
 	"$browser" = "firefox";
         "$mainMod" = "SUPER";
 
+	monitor = [
+	  "eDP-1, highres, 0x0, 1"
+	  ", preferred, auto-right, auto, mirror, eDP-1"
+	];
+
 	exec-once = [
 	  "waybar"
 	  "hyprpaper"
@@ -29,6 +34,14 @@
 	  "$mainMod, Q, killactive,"
 	  "$mainMod, T, exec, $terminal"
 	  "$mainMod, B, exec, $browser"
+	  "$mainMod, D, exec, ~/Pulpit/nix-config/modules/home-manager/hyprland/rofi-launcher.sh"
+
+	  ", XF86MonBrightnessUp, exec, brightnessctl s +5%"
+	  ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+
+	  ", XF86AudioRaiseVolume, exec, pamixer -i 5"
+	  ", XF86AudioLowerVolume, exec, pamixer -d 5"
+	  ", XF86AudioMute, exec, pamixer -t"
 
 	  "$mainMod, 1, workspace, 1"
 	  "$mainMod, 2, workspace, 2"

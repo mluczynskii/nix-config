@@ -23,12 +23,19 @@
 		"custom/arrow4",
 		"battery",
 		"custom/arrow3",
+		"backlight",
 		"custom/arrow2",
-		"tray",
 		"clock#date",
 		"custom/arrow1",
 		"clock#time"
 	],
+
+	"backlight": {
+		"interval": 60,
+		"format": "{icon} {percent}%",
+		"tooltip": false,
+		"format-icons": ["","","",""]
+	},
 
 	"battery": {
 		"interval": 10,

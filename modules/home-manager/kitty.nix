@@ -6,7 +6,7 @@
     programs.kitty = {
       enable = true;
       font.name = "JetBrainsMono Nerd Font";
-      font.size = 18;
+      font.size = 25;
       settings = {
       	cursor_shape = "underline";
 	open_url_with = "firefox";

@@ -153,6 +153,11 @@
 	margin-left: 35pt;
 }
 
+#backlight {
+	background: @bryellow;
+	color: @black;
+}
+
 #pulseaudio {
 	background: @sound;
 	color: @black;

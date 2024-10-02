@@ -4,10 +4,8 @@
 
 { config, pkgs, inputs, ... }:
 
-let rebuild = pkgs.writeScriptBin "rebuild" ''
-	#!${pkgs.stdenv.shell}
-	echo "Hello world!"
-  '';
+let 
+  sddm-catpuccin = (pkgs.callPackage ../pkgs/sddm-catpuccin.nix {}).sddm-catpuccin;
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -70,7 +68,14 @@ in {
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  
+  hardware = {
+  	pulseaudio.enable = false;
+  	bluetooth.enable = true;
+	bluetooth.powerOnBoot = true;
+  };
+  services.blueman.enable = true;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -101,6 +106,11 @@ in {
 
   # List packages installed in system profile. To search, run: $ nix search wget
   environment.systemPackages = with pkgs; [
+  	pamixer
+	brightnessctl
+  	spotify
+  	sddm-catpuccin
+  	nix-prefetch-github
   	zip
 	vscode.fhs
 	git
@@ -108,21 +118,26 @@ in {
 	alejandra
 	neofetch
 	wget
-	rebuild
 	kitty
 	file
 	prusa-slicer
 	gnumake
 	cmake
 	waybar
-	rofi-wayland
 	font-awesome
 	hyprpaper
+	unzip
+	gzip
+  rofi-wayland
   ];
 
   virtualisation.docker = {
   	enable = true;
   };
+  
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.theme = "sddm-catpuccin";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

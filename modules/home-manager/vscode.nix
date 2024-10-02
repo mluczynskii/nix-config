@@ -12,7 +12,7 @@
 	"files.autoSave" = "afterDelay";
 
 	"editor.fontFamily" = "JetBrainsMono Nerd Font, monospace, monospace";
-	"editor.fontSize" = 22;
+	"editor.fontSize" = 33;
 	"editor.fontLigatures" = true;
 	"editor.cursorBlinking" = "expand";
 	"editor.cursorWidth" = 3;
